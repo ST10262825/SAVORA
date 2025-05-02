@@ -28,10 +28,10 @@
         app:enterAnim="@anim/slide_in_up"
         app:exitAnim="@anim/slide_out_down" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_budget"-->
-<!--        android:name="com.yourpackage.BudgetFragment"-->
-<!--        android:label="Budget" />-->
+    <fragment
+        android:id="@+id/nav_budget"
+        android:name="vcmsa.projects.savorabudgetapp.BudgetFragment"
+        android:label="Budget" />
 
 <!--    <fragment-->
 <!--        android:id="@+id/nav_profile"-->

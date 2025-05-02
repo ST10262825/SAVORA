@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_budget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121214"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/etMaxGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Minimum Monthly Goal"
+        android:inputType="numberDecimal"
+        android:background="@drawable/rounded_edittext"
+        android:textColor="#FFA500"
+        android:textColorHint="#FFA500" />
+
+    <EditText
+        android:id="@+id/etMinGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Minimum Monthly Goal"
+        android:inputType="numberDecimal"
+        android:background="@drawable/rounded_edittext"
+        android:textColor="#FFA500"
+    android:textColorHint="#FFA500" />  <!-- Hint text in orange -->
+
+
+    <Button
+        android:id="@+id/btnSaveGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Goals"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

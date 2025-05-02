@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Add these permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -9,11 +8,12 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" /> <!-- For Android 13+ -->
     <!-- Required for camera on Android 10+ -->
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-
-    <!-- For devices before Android 13 -->
-
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:name=".SavoraApplication"
@@ -24,7 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SavoraBudgetApp"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity
+            android:name=".BudgetFragment"
+            android:exported="false" />
         <!-- Add FileProvider for camera photos -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -34,33 +36,28 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <!-- Splash Activity (Entry Point) -->
+        </provider> <!-- Splash Activity (Entry Point) -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Main Activity -->
+        </activity> <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-
-        <!-- Auth Activities -->
+            android:screenOrientation="portrait" /> <!-- Auth Activities -->
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.auth.RegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
+
 </manifest>
