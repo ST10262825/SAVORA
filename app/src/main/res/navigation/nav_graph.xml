@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_dashboard">
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="vcmsa.projects.savorabudgetapp.DashboardFragment"
+        android:label="Dashboard" />
+
+    <fragment
+        android:id="@+id/nav_expenses"
+        android:name="vcmsa.projects.savorabudgetapp.ExpenseListFragment"
+        android:label="Expenses" />
+
+    <!-- Add other fragments -->
+       <fragment
+       android:id="@+id/nav_add"
+          android:name="vcmsa.projects.savorabudgetapp.AddExpenseFragment"
+         android:label="Add" />
+
+
+
+    <action
+        android:id="@+id/action_global_nav_add"
+        app:destination="@id/nav_add"
+        app:enterAnim="@anim/slide_in_up"
+        app:exitAnim="@anim/slide_out_down" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_budget"-->
+<!--        android:name="com.yourpackage.BudgetFragment"-->
+<!--        android:label="Budget" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_profile"-->
+<!--        android:name="com.yourpackage.ProfileFragment"-->
+<!--        android:label="Profile" />-->
+</navigation>

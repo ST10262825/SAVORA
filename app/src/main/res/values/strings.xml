@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SavoraBudgetApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="fa_home">f015</string>  <!-- Home icon Unicode -->
+    <string name="fa_list">f03a</string>  <!-- List icon Unicode -->
+    <string name="fa_plus_circle">f055</string>  <!-- Plus-circle icon Unicode -->
+    <string name="fa_chart_pie">f200</string>  <!-- Chart-pie icon Unicode -->
+    <string name="fa_user">f007</string>  <!-- User icon Unicode -->
+    <string name="expense_item_desc">Expense: %1$s, Amount: %2$s</string>
+    <string name="expenses_list_description">List of all expenses</string>
+</resources>
