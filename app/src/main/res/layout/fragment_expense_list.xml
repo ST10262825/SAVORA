@@ -59,6 +59,24 @@
         android:textColor="#121212"
         android:backgroundTint="#E24C00"/>
 
+    <Button
+        android:id="@+id/btnSelectDateRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date Range"/>
+
+    <Button
+        android:id="@+id/btnToggleSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Summary"/>
+
+    <TextView
+        android:id="@+id/tvCategorySummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
     <!-- RecyclerView with accessibility fix -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvExpenses"

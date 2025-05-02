@@ -1,50 +1,53 @@
 package vcmsa.projects.savorabudgetapp.data
 
-
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import vcmsa.projects.savorabudgetapp.data.Expense
 
 @Dao
 interface ExpenseDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    // Basic operations
+    @Insert
     suspend fun insert(expense: Expense)
 
-    @Delete
-    suspend fun delete(expense: Expense)
-
-    @Query("SELECT * FROM expenses WHERE Categoryname = :categoryName")
-    suspend fun getExpensesByCategory(categoryName: String): List<Expense>
-
-    @Query("SELECT * FROM expenses ORDER BY date DESC")
+    @Query("SELECT * FROM expenses")
     suspend fun getAllExpenses(): List<Expense>
 
+    // Date-filtered operations
     @Query("SELECT * FROM expenses WHERE date BETWEEN :startDate AND :endDate ORDER BY date DESC")
     suspend fun getExpensesBetweenDates(startDate: String, endDate: String): List<Expense>
 
-    @Query("""
-        SELECT SUM(amount) as total, COUNT(*) as count 
-        FROM expenses 
-        WHERE date BETWEEN :startDate AND :endDate
-    """)
+    @Query("SELECT * FROM expenses WHERE date BETWEEN :startDate AND :endDate ORDER BY date DESC")
+    fun observeExpensesBetweenDates(startDate: String, endDate: String): LiveData<List<Expense>>
+
+    // Summary operations
+    @Query("SELECT SUM(amount) as total, COUNT(*) as count FROM expenses WHERE date BETWEEN :startDate AND :endDate")
     suspend fun getSummary(startDate: String, endDate: String): ExpenseSummary
 
+    @Query("SELECT SUM(amount) as total, COUNT(*) as count FROM expenses WHERE date BETWEEN :startDate AND :endDate")
+    fun observeSummary(startDate: String, endDate: String): LiveData<ExpenseSummary>
+
+    // Category spending
     @Query("""
-        SELECT Categoryname, SUM(amount) as totalAmount 
+        SELECT Categoryname as Categoryname, SUM(amount) as totalAmount 
         FROM expenses 
+        WHERE date BETWEEN :startDate AND :endDate
         GROUP BY Categoryname
     """)
-    fun getSpendingByCategory(): LiveData<List<CategorySpending>>
+    suspend fun getSpendingByCategory(startDate: String, endDate: String): List<CategorySpending>
 
-    // Data classes should be outside the DAO interface ideally,
-    // but can work here if marked as static (in Java terms)
+    @Query("""
+        SELECT Categoryname as Categoryname, SUM(amount) as totalAmount 
+        FROM expenses 
+        WHERE date BETWEEN :startDate AND :endDate
+        GROUP BY Categoryname
+    """)
+    fun observeSpendingByCategory(startDate: String, endDate: String): LiveData<List<CategorySpending>>
+
+    // Data class for Expense summary
     data class ExpenseSummary(
         val total: Double,
         val count: Int
     )
 
-    data class CategorySpending(
-        val Categoryname: String,
-        val totalAmount: Double
-    )
+
 }

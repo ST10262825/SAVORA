@@ -69,5 +69,18 @@
             android:text="Save Expense"
             android:backgroundTint="#E24C00"
             android:textColor="#121212" />
+
+        <ImageView
+            android:id="@+id/ivExpensePhoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_add_photo_placeholder"
+            android:scaleType="centerCrop"/>
+
+        <Button
+            android:id="@+id/btnAddPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Photo"/>
     </LinearLayout>
 </ScrollView>
